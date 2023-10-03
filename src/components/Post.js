@@ -12,7 +12,7 @@ function Post ({post}){
 
 
     return <div style={div}>
-        <Link to={`/post/${post.id}`}>
+        <Link to={`/post/${post._id}`}>
             <h1>{post.name}</h1>
             <img src={post.image} alt={post.name} />
         </Link>
