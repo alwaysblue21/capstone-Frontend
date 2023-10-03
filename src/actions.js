@@ -1,0 +1,73 @@
+import url from "./url"
+import {redirect} from "react-router-dom"
+
+// Create Action for Creating Legos
+export const createAction = async({request}) => {
+    // parse out the form data
+    const formData = await request.formData();
+
+    // construct the body for our api call
+    const newLego = {
+        name: formData.get("name"),
+        image: formData.get("image"),
+        age: formData.get("age"),
+        pieces: formData.get("pieces"),
+        item_number: formData.get("item_number"),
+        price: formData.get("price")
+    }
+
+    // make a request to create a lego
+    await fetch(url, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newLego)
+    })
+
+    // redirect to the index page
+    return redirect("/")
+}
+
+// Update Action for Updating Legos
+export const updateAction = async({request, params}) => {
+    // get the id from params
+    const id = params.id
+    // parse out the form data
+    const formData = await request.formData();
+    // construct the updated lego
+    const updatedLego = {
+        name: formData.get("name"),
+        image: formData.get("image"),
+        age: formData.get("age"),
+        pieces: formData.get("pieces"),
+        item_number: formData.get("item_number"),
+        price: formData.get("price")
+    }
+
+    // make a request to update a lego
+    await fetch(url + id, {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedLego)
+    })
+
+    // redirect to the show page
+    return redirect(`/post/${id}`)
+}
+
+// Delete Action for Deleting Legos
+export const deleteAction = async({params}) => {
+    // get the id from params
+    const id = params.id
+
+    // make a request to delete a lego
+    await fetch(url + id, {
+        method: "delete"
+    })
+
+    // redirect to the index page
+    return redirect("/")
+}
