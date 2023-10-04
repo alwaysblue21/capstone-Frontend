@@ -52,6 +52,11 @@ function Show(props) {
         />
         <button>Update Lego</button>
         </Form>
+
+        <Form method="post" action={`/delete/${post.id}`}>
+            <button>Delete Lego</button>
+        </Form>
+
         </div>
         <Link to="/">Back to Index</Link>
         </div>
