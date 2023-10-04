@@ -13,7 +13,7 @@ function Show(props) {
             <h2>Price: ${post.price}</h2>
         <div style={{ textAlign: "center" }}>
         <h2>Update Lego</h2>
-        <Form method="post" action={`/update/${post.id}`}>
+        <Form method="post" action={`/update/${post._id}`}>
         <input
             type="text"
             name="name"
@@ -53,7 +53,7 @@ function Show(props) {
         <button>Update Lego</button>
         </Form>
 
-        <Form method="post" action={`/delete/${post.id}`}>
+        <Form method="post" action={`/delete/${post._id}`}>
             <button>Delete Lego</button>
         </Form>
 
