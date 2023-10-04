@@ -1,5 +1,7 @@
 import Post from '../components/Post';
 import {useLoaderData, Form} from 'react-router-dom';
+import "../styles.scss";
+
 
 function Index (props){
 
