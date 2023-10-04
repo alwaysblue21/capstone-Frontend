@@ -2,7 +2,7 @@
 - **Project Name:** Lego Collection App
 - **Project By:** Je Min Yun
 - [**LINK TO GITHUB**](https://github.com/alwaysblue21/capstone-Frontend)
-- [**LINK TO DEPLOYED WEBSITE**]
+- [**LINK TO DEPLOYED WEBSITE**](https://transcendent-dolphin-c07434.netlify.app/)
 - **List of Technologies used:** React, React Router Dom
 ## Description
 Users can add their lego collection to see what they have, and information of the lego model.
