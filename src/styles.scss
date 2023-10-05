@@ -1,0 +1,26 @@
+body {
+    background-image: url(./Images/lego-background.png);
+    background-size: cover;
+    width: 100%;
+    // min-height: 100vh;
+}
+
+.index-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+div {
+    color: black;
+    border-radius: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    color: black;
+}
+
+.lego-name {
+    font-size: medium;
+}

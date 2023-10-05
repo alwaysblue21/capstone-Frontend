@@ -22,7 +22,9 @@ function Index (props){
             <button>Create a new Lego</button>
         </Form>
     </div>
+    <div className='index-container'>
     {legos.map((lego) => <Post key={lego.id} post={lego}/>)}
+    </div>
     </>
 
 }
