@@ -1,8 +1,10 @@
 body {
-    background-image: url(https://downloadwap.com/thumbs2/wallpapers/p2ls/new/37/GGbeOySrqW.jpg);
+    height: 100vh;
+    // margin: 0 100px;
+    background-image: url(./Images/lego-background.png);
+    // background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    // min-height: 100vh;
+    background-position: center;
 }
 
 .index-container {
@@ -28,6 +30,11 @@ h2 {
 .lego-name {
     font-size: medium;
     color: white;
+    background-color: black;
+}
+
+.lego-index {
+    background-color: black
 }
 
 input {

@@ -11,10 +11,10 @@ function Post ({post}){
     }
 
 
-    return <div style={div}>
+    return <div className='lego-index' style={div}>
         <Link to={`/post/${post._id}`}>
             <h1 className='lego-name'>{post.name}</h1>
-            <img src={post.image} alt={post.name} />
+            <img className='lego-img' src={post.image} alt={post.name} />
         </Link>
     </div>
 }
