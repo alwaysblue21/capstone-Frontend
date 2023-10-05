@@ -11,7 +11,7 @@ function Index (props){
     // map over the legos and create a Post component for each lego
     return <>
     <div style={{textAlign: "center"}}>
-        <h2>Add A New Lego</h2>
+        <h2 className='h2'>Add A New Lego</h2>
         <Form method="post" action="/create">
             <input type="text" name="name" placeholder="Name"/>
             <input type="text" name="image" placeholder="Image Url"/>
@@ -22,8 +22,9 @@ function Index (props){
             <button>Create a new Lego</button>
         </Form>
     </div>
+    <h1>My Lego Collections</h1>
     <div className='index-container'>
-    {legos.map((lego) => <Post key={lego.id} post={lego}/>)}
+        {legos.map((lego) => <Post key={lego.id} post={lego}/>)}
     </div>
     </>
 
