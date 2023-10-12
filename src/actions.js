@@ -1,4 +1,5 @@
-import url from "./authurl"
+import authurl from "./authurl"
+import url from "./url"
 import {redirect} from "react-router-dom"
 
 // Create Action for Creating Legos
@@ -83,7 +84,7 @@ export const signupAction = async ({request}) => {
         password: formData.get('password'),
     }
     // send the new user to our backend API
-    const response = await fetch(`${url}/auth/signup`, {
+    const response = await fetch(`${authurl}/auth/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -101,4 +102,38 @@ export const signupAction = async ({request}) => {
 
     // redirect back to the frontend login route
     return redirect('/login')
+}
+
+export const loginAction = async ({request}) => {
+    // get the form data
+    const formData = await request.formData()
+    // build out the user
+    const user = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        password: formData.get('password'),
+    }
+    // send the user to our backend API
+    const response = await fetch(`${authurl}/auth/login`, {
+        method: "POST",
+        
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+
+    // check if status is 400 or more
+    if (response.status >= 400) {
+        // alert the details of error
+        alert(response.statusText)
+        // redirect back to the frontend login route
+        return redirect('/login')
+    }
+
+    // store whether loggedIn in localStorage
+    localStorage.setItem('loggedIn', JSON.stringify({status: true}))
+
+    // redirect back to the frontend index route
+    return redirect('/dashboard')
 }

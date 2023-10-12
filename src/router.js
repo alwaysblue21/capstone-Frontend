@@ -3,7 +3,7 @@ import App from "./App";
 import Index from "./pages/Index";
 import Show from "./pages/Show";
 import {indexLoader, showLoader} from "./loaders";
-import { createAction, updateAction, deleteAction, signupAction } from "./actions";
+import { createAction, updateAction, deleteAction, signupAction, loginAction } from "./actions";
 //auth//
 import Main from "./pages/Main";
 import Signup from "./pages/Signup";
@@ -15,7 +15,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/" element={<App/>}>
             <Route path="" element={<Main/>}>
                 <Route path="signup" element={<Signup/>} action={signupAction}/>
-                <Route path="login" element={<Login/>}/>
+                <Route path="login" element={<Login/>} action={loginAction}/>
             </Route>
             <Route path="post/:id" element={<Show/>} loader={showLoader}/>
             <Route path="create" action={createAction}/>

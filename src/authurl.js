@@ -1,5 +1,5 @@
-const url =  "https://capstone-backend-jy.onrender.com"
+const authurl =  "https://capstone-backend-jy.onrender.com"
 
 
 
-export default url
+export default authurl
