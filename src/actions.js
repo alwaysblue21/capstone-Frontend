@@ -27,7 +27,7 @@ export const createAction = async({request}) => {
     })
 
     // redirect to the index page
-    return redirect("/")
+    return redirect("/dashboard")
 }
 
 // Update Action for Updating Legos
@@ -70,7 +70,7 @@ export const deleteAction = async({params}) => {
     })
 
     // redirect to the index page
-    return redirect("/")
+    return redirect("/dashboard")
 }
 
 //auth
