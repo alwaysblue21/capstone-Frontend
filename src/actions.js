@@ -1,6 +1,8 @@
 import authurl from "./authurl"
 import url from "./url"
 import {redirect} from "react-router-dom"
+// help from Alex
+import getToken from "./getToken"
 
 // Create Action for Creating Legos
 export const createAction = async({request}) => {
@@ -21,7 +23,9 @@ export const createAction = async({request}) => {
     await fetch(url, {
         method: "post",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            // help from Alex
+            "authorization": `bearer ${getToken()}`
         },
         body: JSON.stringify(newLego)
     })
@@ -50,7 +54,9 @@ export const updateAction = async({request, params}) => {
     await fetch(url + id, {
         method: "put",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            // help from Alex
+            "authorization": `bearer ${getToken()}`
         },
         body: JSON.stringify(updatedLego)
     })
@@ -66,7 +72,9 @@ export const deleteAction = async({params}) => {
 
     // make a request to delete a lego
     await fetch(url + id, {
-        method: "delete"
+        method: "delete",
+        // help from alex
+        "authorization": `bearer ${getToken()}`
     })
 
     // redirect to the index page
@@ -131,8 +139,17 @@ export const loginAction = async ({request}) => {
         return redirect('/login')
     }
 
-    // store whether loggedIn in localStorage
-    localStorage.setItem('loggedIn', JSON.stringify({status: true}))
+    // parse response from the request - Help From Alex
+    const loginResponse = await response.json()
+
+    // // store whether loggedIn in localStorage
+    // localStorage.setItem('loggedIn', JSON.stringify({status: true}))
+
+    // store whether loggedIn in localStorage - Help From Alex
+    localStorage.setItem('loggedIn', JSON.stringify({
+        status: true,
+        token: loginResponse.token
+    }))
 
     // redirect back to the frontend index route
     return redirect('/dashboard')

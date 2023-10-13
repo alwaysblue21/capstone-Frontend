@@ -58,7 +58,7 @@ function Show(props) {
         </Form>
 
         </div>
-        <Link to="/">Back to Index</Link>
+        <Link to="/dashboard">Back to Index</Link>
         </div>
     );
 }
