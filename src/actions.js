@@ -73,8 +73,10 @@ export const deleteAction = async({params}) => {
     // make a request to delete a lego
     await fetch(url + id, {
         method: "delete",
+        headers: {
         // help from alex
         "authorization": `bearer ${getToken()}`
+        }, 
     })
 
     // redirect to the index page
