@@ -6,7 +6,7 @@ function Show(props) {
     return (
         <div>
             <h1>Model Name: {post.name}</h1>
-            <img src={post.image} alt={post.name} />
+            <img className="show-img" src={post.image} alt={post.name} />
             <h2>Recommended Age: {post.age}</h2>
             <h2>Pieces: {post.pieces}</h2>
             <h2>Model Number: {post.item_number}</h2>
